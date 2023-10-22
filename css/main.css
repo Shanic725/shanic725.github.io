@@ -13035,7 +13035,7 @@ textarea.form-control-lg {
 html {
   user-select: none;
   scrollbar-width: none;
-  background-image: url("../img/Aethereal_Planes_-_Cosmic_Rift_2500x2500.jpg");
+  background-color: #EEEEEE;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
