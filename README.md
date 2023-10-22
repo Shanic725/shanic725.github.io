@@ -1,1 +1,2 @@
-# shanic725.github.io
+# cyoa
+Repository for my CYOA code, browse if you dare.
