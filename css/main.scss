@@ -1,0 +1,289 @@
+@font-face {
+    font-family: "Pixeloid";
+    src: local("Pixeloid Sans"), local("PixeloidSans"), url("../fonts/PixeloidSans.ttf") format("truetype");
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Pixeloid";
+    src: local("Pixeloid Sans Bold"), local("PixeloidSansBold"), url("../fonts/PixeloidSansBold.ttf") format("truetype");
+    font-weight: bold;
+}
+@font-face {
+    font-family: "PixelSGA";
+    src: local("SGA Pixies"), local("SgaPixies"), url("../fonts/SgaPixies.ttf") format("truetype");
+}
+@import "../scss/bootstrap.scss";
+
+
+html {
+    user-select: none;
+    scrollbar-width: none;
+    background-image: url("../img/Aethereal_Planes_-_Cosmic_Rift_2500x2500.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    > body {
+        scrollbar-width: none;
+        font-family: 'Pixeloid', ui-monospace;
+        background-color: unset;
+        margin-bottom: 100px;
+    }
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.card {
+    background: rgb(43,14,136);
+}
+#welcome {
+    max-width: 800px;
+}
+#intro {
+    min-height: 360px!important;
+}
+#unwelcome {
+    opacity: 0;
+}
+
+#audioBar {
+    padding-top: 5px;
+    max-width: fit-content;
+    max-height: 100px;
+    border-radius: 1rem 1rem 0 0;
+    background: rgba(43, 14, 136, 0.75);
+    margin-bottom: -80px;
+    transition: margin-bottom 0.2s, opacity 0.2s;
+    overflow: hidden;
+    @media (min-resolution: 120dpi) {
+        max-width: 80px!important;
+        margin-bottom: -80px!important;
+        > div {
+            opacity: 0;
+        }
+    }
+    &:hover, &:active {
+        max-width: fit-content!important;
+        margin-bottom: 0!important;
+        > div {
+            opacity: 1;
+        }
+    }
+    .form-range {
+        max-width: 200px;
+        max-height: 100px;
+        height: auto;
+    }
+    //background: linear-gradient(90deg, rgba(43,14,136,0) 0%, rgba(43,14,136,0.5) 50%, rgba(43,14,136,0) 100%);
+}
+.choice {
+    &:hover {
+        cursor: pointer;
+    }
+    height: 100%;
+    background: rgb(43,14,136);
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,0.5);
+    > div {
+        > .category-title {
+            text-shadow: rgb(0, 0, 0) 0 1px 3px;
+        }
+        > .points, .conflicts, .requires {
+            text-shadow: rgb(0, 0, 0) 0 1px 2px;
+            color: #fff;
+            &.positive {
+                color: #73d23b;
+            }
+            &.negative {
+                color: #d23b73;
+            }
+            > .conflicts {
+                color: #d23b73;
+            }
+            > .requires {
+                color: #3bbbd2;
+            }
+        }
+    }
+}
+.active-choice {
+    background: rgb(20, 67, 167);
+    > div {
+        > .category-title {
+            text-shadow: rgb(255, 255, 255) 0 0 15px, rgb(255, 255, 255) 0 0 5px, rgb(122, 122, 122) 0 1px 3px;
+        }
+        > .points {
+            color: #fff!important;
+            text-shadow: rgb(255, 255, 255) 0 0 15px, rgb(255, 255, 255) 0 0 5px, rgb(122, 122, 122) 0 1px 2px;
+            &.positive {
+                text-shadow: rgb(132, 255, 0) 0 0 15px, rgb(255, 255, 255) 0 0 5px, rgb(122, 122, 122) 0 1px 2px;
+            }
+            &.negative {
+                text-shadow: rgb(255, 0, 144) 0 0 15px, rgb(255, 255, 255) 0 0 5px, rgb(122, 122, 122) 0 1px 2px;
+            }
+        }
+    }
+}
+
+.rows-header:hover {
+    cursor: pointer;
+}
+.forced {
+    background: rgb(20, 167, 101);
+    > div {
+        > .category-title {
+            text-shadow: rgb(255, 255, 255) 0 0 15px, rgb(255, 255, 255) 0 0 5px, rgb(122, 122, 122) 0 1px 3px;
+        }
+    }
+
+}
+.disabled-choice {
+    filter: grayscale(70%) blur(1px);
+    &:hover {
+        cursor: not-allowed;
+    }
+    background: rgb(100, 14, 14);
+}
+.category-header{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    box-shadow: 0rem -2.5rem 2.0rem -2.5rem rgba(0,0,0,0.75) inset;
+    > span {
+        display: block;
+        width: fit-content;
+        max-width: 800px;
+    }
+}
+.collapsed {
+    > * {
+        transition: opacity 500ms;
+        opacity:0!important;
+    }
+}
+.category-title {
+    color: rgb(255, 255, 255);
+    text-shadow: rgb(255, 0, 144) 0 0 15px, rgb(255, 255, 255) 0 0 5px;
+    width: auto;
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.category-bg {
+    background: rgba(43,14,136, 0.5);
+    background: radial-gradient(circle, rgba(43,14,136,0.5) 0%, rgba(113,9,170,0.5) 100%);
+    &#intro-text {
+        background: linear-gradient(180deg, rgba(43,14,136,0.5) 0%, rgba(113,9,170,0.0) 100%);
+    }
+}
+.glitch{
+    font-family: 'PixelSGA', ui-monospace;
+}
+.row-container {
+    overflow: hidden;
+}
+#canvas {
+    margin: 0;
+    padding: 0;
+    height:100%;
+    width:100%;
+    position:fixed;
+    display:block;
+    z-index: -50;
+}
+#canopy{
+    height: 5rem;
+}
+#backpack {
+    background: rgb(43,14,136);
+    position: fixed;
+    left: 10px;
+    z-index:200;
+    height: fit-content;
+    min-width: min-content;
+    max-width: 15%;
+    @media (min-resolution: 120dpi) and (orientation: portrait) {
+        left: 0;
+        top: 0;
+        border-radius: 0 0 1rem 0!important;
+    }
+    > div > {
+        .backpack-title, span {
+            text-shadow: rgb(255, 255, 255) 0 0 15px;
+
+            &.positive {
+                text-shadow: rgb(132, 255, 0) 0 0 15px, rgb(255, 255, 255) 0 0 5px;
+            }
+
+            &.negative {
+                text-shadow: rgb(255, 0, 144) 0 0 15px, rgb(255, 255, 255) 0 0 5px;
+            }
+        }
+    }
+}
+#programming-gibberish, .programming-old, #programming-title{
+    height: 0.9rem!important;
+    font-size: 0.8rem;
+    color: white;
+    @media (min-resolution: 120dpi) and (orientation: portrait){
+        transform: translateY(-1.1rem);
+        overflow: hidden;
+    }
+}
+#shameless-self-promotion {
+    height: 0.9rem!important;
+    font-size: 0.8rem;
+    color: white;
+    > a {
+        text-decoration: none!important;
+        &:visited {
+            color: rgb(20, 167, 101);
+        }
+        &:hover {
+            color: rgb(181, 51, 252);
+        }
+        &:link {
+            color: white;
+        }
+        &:active {
+            color: rgb(59, 187, 210);
+        }
+    }
+}
+#unisim {
+    height: 0.9rem!important;
+    font-size: 0.8rem;
+    color: white;
+    @media (min-resolution: 120dpi) and (orientation: portrait){
+        display: none;
+    }
+}
+#programming-title {
+    color: #ffffff44;
+    margin-bottom: 3rem!important;
+}
+#pixi {
+    > canvas {
+        pointer-events: none;
+        z-index: -100;
+        position: fixed;
+    }
+    
+}
+#goddess {
+    height: 100%;
+    width: auto;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: -100;
+    @media (min-resolution: 120dpi) and (orientation: portrait) {
+        height: auto;
+        width: 100%;
+        right: unset;
+    }
+    @media (min-resolution: 120dpi) and (orientation: landscape) {
+        height: 100%;
+        right: 0;
+    }
+}
