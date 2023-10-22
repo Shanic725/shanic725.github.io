@@ -13249,7 +13249,8 @@ html > body {
 #programming-gibberish, .programming-old, #programming-title {
   height: 0.9rem !important;
   font-size: 0.8rem;
-  color: black;
+  color: white;
+  text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000, 1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
 }
 @media (min-resolution: 120dpi) and (orientation: portrait) {
   #programming-gibberish, .programming-old, #programming-title {

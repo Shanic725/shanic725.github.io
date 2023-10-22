@@ -209,7 +209,7 @@ class World extends Animations {
 }
 const programming = document.getElementsByClassName('programming-old');
 let margin = 1.2;
-let color = 0x000000aa;
+let color = 0xffffffaa;
 for (let i = 0; i < programming.length; i++) {
 	programming[i].style= `margin-bottom: ${margin}rem !important; color: #${color.toString(16)} !important`;
 	margin += 0.9;
