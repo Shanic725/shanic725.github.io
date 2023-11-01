@@ -187,10 +187,10 @@ class Bank {
 		this.vault.push(new Point(name));
 	}
 }
-const backpack = new Bank('karma');
-const karma = backpack.vault[0];
-karma.setup();
-karma.changePrefix('Current');
+const backpack = new Bank('Macca');
+const macca = backpack.vault[0];
+macca.setup();
+macca.changePrefix('Current');
 
 let points = 0;
 //All that handles choices
@@ -253,10 +253,10 @@ const forceChoice = (element, on = true) => {
 
 const choiceDeactivator = (element) => {
 	if (element.classList.contains("active-choice") && !element.classList.contains("forced")){
-		karma.modifyCosts(element, false);
-		let value = parseInt(element.dataset.pointsKarma);
+		macca.modifyCosts(element, false);
+		let value = parseInt(element.dataset.pointsMacca);
 		element.classList.remove("active-choice");
-		karma.subPoints(value);
+		macca.subPoints(value);
 		forceChoice(element, false);
 		return true;
 	} else
@@ -264,10 +264,10 @@ const choiceDeactivator = (element) => {
 }
 const choiceActivator = (element) => {
 	if (!element.classList.contains("active-choice")){
-		karma.modifyCosts(element, true);
-		let value = parseInt(element.dataset.pointsKarma);
+		macca.modifyCosts(element, true);
+		let value = parseInt(element.dataset.pointsMacca);
 		element.classList.add("active-choice");
-		karma.addPoints(value);
+		macca.addPoints(value);
 		forceChoice(element, true);
 		return true;
 	} else
