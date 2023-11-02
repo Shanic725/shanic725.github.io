@@ -56,6 +56,8 @@ const changeAudio = (audio, path, endVolume) => {
 		;});
 	return audio;
 }
+
+
 //Set up Event Listeners
 document.addEventListener('click', function firstInteraction() {
 	fadeIn(bgm, document.getElementById('customRange1').value);
@@ -69,6 +71,8 @@ for (let choice of choices) {
 for (let header of headers) {
 	header.addEventListener("click", () => {collapseCategory(header)}, false);
 }
+
+
 //Points System
 class Point {
 	constructor(name = '', value = 0) {
@@ -143,6 +147,8 @@ class Point {
 		}
 	}
 }
+
+
 class mainCurrency extends Point {
 	constructor(name = '', value = 0) {
 		super(name, value);
@@ -170,6 +176,8 @@ class mainCurrency extends Point {
 	}
 
 }
+
+
 class Bank {
 	constructor(name = '$',vault = []) {
 		this.names = vault
@@ -187,6 +195,8 @@ class Bank {
 		this.vault.push(new Point(name));
 	}
 }
+
+
 const backpack = new Bank('Macca');
 const macca = backpack.vault[0];
 macca.setup();
