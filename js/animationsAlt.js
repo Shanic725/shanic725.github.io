@@ -133,6 +133,48 @@ class Intro extends Animations {
 	}
 }
 
+//Animations Class for Points part
+class PointsSelect extends Animations {
+	next() {
+		playSE('audio/click1.ogg', seVolume);
+		super.next();
+		if (this.counter === 1) document.getElementById("previous").removeAttribute("disabled");
+		if (this.counter + 1 === this.phrases.length) {
+			document.getElementById("next").setAttribute("disabled", "");
+			document.getElementById("accept").classList.remove("d-none");
+		}
+
+	}
+	previous() {
+		playSE('audio/click1.ogg', seVolume);
+		if (this.counter === this.phrases.length - 1) {
+			document.getElementById("next").removeAttribute("disabled");
+			document.getElementById("accept").classList.add("d-none");
+		}
+		super.previous();
+		if (this.counter === 0) document.getElementById("previous").setAttribute("disabled", "");
+
+	}
+	accept() {
+		playSE('audio/click1.ogg', seVolume);
+		changeAudio(bgm, 'audio/bgm2.ogg', bgmVolume);
+		anime({
+			targets: '#PointsSelect',
+			opacity: 0,
+			easing: 'easeInOutSine',
+			complete: () => {
+				document.getElementById("PointsSelect").classList.add("d-none")
+				document.getElementById("BaseBody").classList.remove("d-none");
+				anime({
+					targets: '#BaseBody',
+					opacity: 1,
+					easing: 'easeInOutSine'
+				});
+			}
+		});
+	}
+}
+
 
 // ——————————————————————————————————————————————————
 // 1st scramble (and probably only one)
